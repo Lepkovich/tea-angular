@@ -1,10 +1,12 @@
 <div class="col-lg-4">
   <div class="card">
-    <a href="../../../../assets/images/catalog-1.png" class="popup-link">
-      <img alt="catalog-1" class="img-fluid" src="../../../../assets/images/catalog-1.png"></a>
+    <ng-template [ngIf]="product.image">
+    <a href="{{product.image}}" class="popup-link">
+      <img alt="catalog-1" class="img-fluid" src="{{product.image}}"></a>
+    </ng-template>
     <div class="p-4">
-      <h3>Детокс чай лайм</h3>
-      <p>Великолепный чай внесет в вашу жизнь яркие краски и вкус расслабления</p>
+      <h3>{{product.title}}</h3>
+      <p>{{product.description}}</p>
       <button class="btn btn-primary hvr-float-shadow">Подробнее</button>
     </div>
   </div>

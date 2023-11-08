@@ -9,6 +9,7 @@ import { MainComponent } from './components/pages/main/main.component';
 import { ProductsComponent } from './components/pages/products/products.component';
 import { OrderComponent } from './components/pages/order/order.component';
 import { ProductCardComponent } from './components/common/product-card/product-card.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProductCardComponent } from './components/common/product-card/product-c
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
