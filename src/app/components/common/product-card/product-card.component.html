@@ -1,11 +1,13 @@
-<div class="col-lg-4">
 <div class="card">
     <a href="{{product.image}}" class="popup-link">
       <img alt="catalog-1" class="img-fluid" src="{{product.image}}"></a>
     <div class="p-4">
       <h3>{{product.title}}</h3>
       <p>{{product.description}}</p>
-      <button class="btn btn-primary hvr-float-shadow">Подробнее</button>
+      <button class="btn btn-primary hvr-float-shadow" [routerLink]="['/product', product.id]">Подробнее</button>
+<!-- нужно добавить вызов addToCart и передать в него product.title
+      смотрим урок Routing 31min
+(addToCartEvent)="addToCart(product.title)-->
     </div>
-  </div>
 </div>
+

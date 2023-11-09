@@ -8,6 +8,8 @@ import {ProductType} from "../types/product.type";
 })
 export class ProductService {
 
+  product: string = '';
+
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<ProductType[]> {

@@ -1,0 +1,10 @@
+<div class="card">
+  <img alt="catalog-1" class="img-fluid" src="{{product.image}}">
+  <div class="p-4">
+    <h3>{{product.title}}</h3>
+    <p>{{product.description}}</p>
+    <p>Цена: {{product.price}}р.</p>
+    <a class="btn btn-primary hvr-float-shadow" routerLink="/order" [queryParams]="{product: product.title}" >Купить</a>
+<!--    (addToCartEvent)="addToCart($event)"-->
+  </div>
+</div>

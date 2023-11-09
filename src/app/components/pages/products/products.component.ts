@@ -6,7 +6,7 @@ import {Router} from "@angular/router";
 import {ProductService} from "../../../services/product.service";
 
 @Component({
-  selector: 'app-products',
+  selector: 'products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })

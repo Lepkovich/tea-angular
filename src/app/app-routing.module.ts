@@ -4,12 +4,14 @@ import {MainComponent} from "./components/pages/main/main.component";
 import {ProductsComponent} from "./components/pages/products/products.component";
 import {OrderComponent} from "./components/pages/order/order.component";
 import {ProductCardComponent} from "./components/common/product-card/product-card.component";
+import {ProductComponent} from "./components/pages/product/product.component";
 
 const routes: Routes = [
   {path: '', component: MainComponent},
   {path: 'products', component: ProductsComponent},
+  {path: 'product/:id', component: ProductComponent},
   {path: 'order', component: OrderComponent},
-  {path: 'card', component: ProductCardComponent},
+  {path: 'card/:id', component: ProductCardComponent},
 ];
 
 @NgModule({
