@@ -4,7 +4,7 @@
     <div class="p-4">
       <h3>{{product.title}}</h3>
       <p>{{product.description}}</p>
-      <button class="btn btn-primary hvr-float-shadow" [routerLink]="['/product', product.id]">Подробнее</button>
+      <button class="btn btn-primary hvr-float-shadow" [routerLink]="['/product', product.id]" (click)="addToCart()" >Подробнее</button>
 <!-- нужно добавить вызов addToCart и передать в него product.title
       смотрим урок Routing 31min
 (addToCartEvent)="addToCart(product.title)-->

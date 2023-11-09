@@ -44,4 +44,8 @@ export class ProductsComponent implements OnInit, OnDestroy{
     this.subscription?.unsubscribe();
   }
 
+  addToCart(product:ProductType): void {
+    console.log(product);
+  }
+
 }
