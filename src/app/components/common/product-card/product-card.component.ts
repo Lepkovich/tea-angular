@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {ProductType} from "../../../types/product.type";
-import {ProductService} from "../../../services/product.service";
 
 @Component({
   selector: 'product-card',
@@ -9,9 +8,9 @@ import {ProductService} from "../../../services/product.service";
 })
 export class ProductCardComponent {
   @Input() product: ProductType;
-  @Output() addToCartEvent: EventEmitter<ProductType> = new EventEmitter<ProductType>();
+  // @Output() addToCartEvent: EventEmitter<ProductType> = new EventEmitter<ProductType>();
 
-  constructor(public productService: ProductService) {
+  constructor() {
     this.product = {
       id: 0,
       image: '',
@@ -22,6 +21,6 @@ export class ProductCardComponent {
   }
 
   addToCart() {
-    this.addToCartEvent.emit(this.product);
+    // this.addToCartEvent.emit(this.product);
   }
 }
