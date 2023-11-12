@@ -1,11 +1,7 @@
-.carousel-control-prev-icon {
-    background-image: url("../../../../../tea-angular/src/assets/images/arrow-left.png");
-}
-.carousel-control-next-icon {
-    background-image: url("../../../../../tea-angular/src/assets/images/arrow-right.png");
-}
-.carousel-control-next, .carousel-control-prev {
-    width: 5%;
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 .navbar {
     background-color: #F8F9FA;
@@ -76,5 +72,13 @@ p {
 
 .hideElement {
     display: none;
+}
+.thank-you-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.order-placed {
+  flex: 1;
 }
 

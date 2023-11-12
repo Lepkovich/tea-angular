@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {ProductService} from "../../../services/product.service";
 import {ProductType} from "../../../types/product.type";
@@ -50,7 +50,7 @@ export class ProductComponent implements OnInit{
       .subscribe({
         next: (data) => {
           if (this.productId) {
-              this.product = data[this.productId];
+              this.product = data[this.productId-1];
           }
         },
         error: (error) => {

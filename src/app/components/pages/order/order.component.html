@@ -1,37 +1,114 @@
-<div id="makeOrder" class="container cont-form">
+<div class="container cont-form">
+  <div *ngIf="!orderPlaced">
   <h2 class="text-center mb-5">Сделать заказ</h2>
-  <form class="row g-3">
-    <div class="col-md-4">
-      <label class="form-label" for="inputName">Имя</label>
-      <input class="form-control" id="inputName" type="text">
-    </div>
-    <div class="col-md-4">
-      <label class="form-label" for="inputSurname">Фамилия</label>
-      <input class="form-control" id="inputSurname" type="text">
-    </div>
-    <div class="col-md-4">
-      <label class="form-label" for="inputPhone">Телефон</label>
-      <input class="form-control" id="inputPhone" type="tel">
-    </div>
-    <div class="col-md-6">
-      <label class="form-label" for="inputCountry">Страна</label>
-      <input class="form-control" id="inputCountry" type="text">
-    </div>
-    <div class="col-md-6">
-      <label class="form-label" for="inputZip">Индекс</label>
-      <input class="form-control" id="inputZip" type="text">
-    </div>
-    <div class="col-12 mb-3">
-      <label class="form-label" for="inputAddress">Адрес</label>
-      <input class="form-control" id="inputAddress" type="text">
-    </div>
-    <div class="col-12 mb-5">
-      <button id="btnSend" class="btn btn-primary hvr-grow-shadow" type="submit">Отправить
-      </button>
-    </div>
-  </form>
+    <form class="row g-3" [formGroup]="orderForm">
+      <div class="col-12 mb-3">
+        <label class="form-label" for="inputAddress">Товар</label>
+        <input class="form-control" id="product" type="text"
+               formControlName="product">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label" for="inputName">Имя</label>
+        <input class="form-control" id="inputName" type="text"
+               [class]="{'border-danger': name?.invalid && (name?.touched || name?.dirty)}"
+               formControlName="name">
+        <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+          <div class="text-danger" *ngIf="name?.errors?.['required']">
+            Имя обязательное поле
+          </div>
+          <div class="text-danger" *ngIf="name?.errors?.['pattern']">
+            Имя введено неверно
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label class="form-label" for="inputSurname">Фамилия</label>
+        <input class="form-control" id="inputSurname" type="text"
+               [class]="{'border-danger': surname?.invalid && (surname?.dirty || surname?.touched)}"
+               formControlName="surname">
+        <div *ngIf="surname?.errors && (surname?.touched || surname?.dirty)">
+          <div class="text-danger" *ngIf="surname?.errors?.['required']">
+            Фамилия обязательное поле
+          </div>
+          <div class="text-danger" *ngIf="surname?.errors?.['pattern']">
+            Фамилия введена неверно
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label class="form-label" for="inputPhone">Телефон</label>
+        <input class="form-control" id="inputPhone" type="tel"
+               [class]="{'border-danger': phone?.errors && (phone?.dirty || phone?.touched)}"
+               formControlName="phone">
+        <div *ngIf="phone?.errors && (phone?.dirty || phone?.touched)">
+          <div class="text-danger" *ngIf="phone?.errors?.['required']">
+            Телефон обязательное поле
+          </div>
+          <div class="text-danger" *ngIf="phone?.errors?.['pattern']">
+            Телефон может содержать + и 11 цифр
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label" for="inputCountry">Страна</label>
+        <input class="form-control" id="inputCountry" type="text"
+               [class]="{'border-danger': country?.errors && (country?.touched || country?.dirty)}"
+               formControlName="country">
+        <div *ngIf="country?.errors && (country?.touched || country?.dirty)">
+          <div class="text-danger" *ngIf="country?.errors?.['required']">
+            Страна обязательное поле
+          </div>
+          <div class="text-danger" *ngIf="country?.errors?.['pattern']">
+            Страна может содержать только буквы
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label" for="inputZip">Индекс</label>
+        <input class="form-control" id="inputZip" type="text"
+               [class]="{'border-danger': zip?.errors && (zip?.dirty || zip?.touched)}"
+               formControlName="zip">
+        <div *ngIf="zip?.errors && (zip?.dirty || zip?.touched)">
+          <div class="text-danger" *ngIf="zip?.errors?.['required']">
+            Индекс обязательное поле
+          </div>
+          <div class="text-danger" *ngIf="zip?.errors?.['pattern']">
+            Индекс может содержать только цифры
+          </div>
+        </div>
+      </div>
+      <div class="col-12 mb-3">
+        <label class="form-label" for="inputAddress">Адрес</label>
+        <input class="form-control" id="inputAddress" type="text"
+               [class]="{'border-danger': address?.errors && (address?.touched || address?.dirty)}"
+               formControlName="address">
+        <div *ngIf="address?.errors && (address?.dirty || address?.touched)">
+          <div class="text-danger" *ngIf="address?.errors?.['required']">
+            Адрес обязательное поле
+          </div>
+          <div class="text-danger" *ngIf="address?.errors?.['pattern']">
+            Адрес может содержать буквы, цифры, пробелы, дефис и слэш
+          </div>
+        </div>
+      </div>
+      <div class="col-12 mb-3">
+        <label class="form-label" for="inputAddress">Комментарии к заказу</label>
+        <input class="form-control" id="commands" type="text"
+               formControlName="comments">
+      </div>
+      <div class="col-12 mb-5">
+        <button id="btnSend" class="btn btn-primary hvr-grow-shadow" type="submit" (click)="signIn()">Отправить
+        </button>
+        <div class="text-danger" *ngIf="serverError">
+          Произошла ошибка. Попробуйте еще раз
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
-<div id="thankYou" class="container cont-form hideElement">
-  <h2 class="text-center mb-5">Спасибо за заказ!</h2>
-  <p class="text-center">Мы свяжемся с Вами в ближайшее время.</p>
+<div id="thankYou" class="container thank-you-page" *ngIf="orderPlaced">
+  <div class="order-placed">
+    <h2 class="text-center mb-5">Спасибо за заказ!</h2>
+    <p class="text-center mb-auto">Мы свяжемся с Вами в ближайшее время.</p>
+  </div>
 </div>

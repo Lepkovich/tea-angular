@@ -1,7 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ProductType} from "../../../types/product.type";
-import {HttpClient} from "@angular/common/http";
-import {Subscription, tap} from "rxjs";
+import {map, Subscription} from "rxjs";
 import {Router} from "@angular/router";
 import {ProductService} from "../../../services/product.service";
 
@@ -15,7 +14,6 @@ export class ProductsComponent implements OnInit, OnDestroy{
   private subscription: Subscription | null = null;
   products: ProductType[] = [];
   constructor(
-    private http: HttpClient,
     private router: Router,
     private productService: ProductService
   ) {
@@ -25,8 +23,15 @@ export class ProductsComponent implements OnInit, OnDestroy{
   ngOnInit() {
     this.subscription = this.productService.getProducts()
       .pipe(
-        tap((result) => {
-          console.log(result)
+        map((data: ProductType[]) => {
+          data.forEach(product => {
+            //сократим описание до 200 символов
+            if (product.description.length > 200) {
+              // product.description = product.description.substring(0, 200) + " ..."
+              product.description = this.truncateString(product.description) + " ...";
+            }
+          })
+          return data;
         })
       )
       .subscribe({
@@ -40,12 +45,16 @@ export class ProductsComponent implements OnInit, OnDestroy{
       })
   }
 
+  truncateString(text: string): string {
+    let truncated = text.substring(0, 200);
+    const lastSpaceIndex = truncated.lastIndexOf(' ');
+    if (lastSpaceIndex !==-1) {
+      text = truncated.substring(0, lastSpaceIndex);
+    }
+    return text;
+  }
+
   ngOnDestroy() {
     this.subscription?.unsubscribe();
   }
-
-  addToCart(product:ProductType): void {
-    // console.log(product);
-  }
-
 }

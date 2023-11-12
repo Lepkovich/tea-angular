@@ -1,10 +1,24 @@
-<div class="card">
-  <img alt="catalog-1" class="img-fluid" src="{{product.image}}">
-  <div class="p-4">
-    <h3>{{product.title}}</h3>
-    <p>{{product.description}}</p>
-    <p>Цена: {{product.price}}р.</p>
-    <a class="btn btn-primary hvr-float-shadow" routerLink="/order" [queryParams]="{product: product.title}" >Купить</a>
-<!--    (addToCartEvent)="addToCart($event)"-->
+<div class="container-xl product">
+  <h3 class="mt-2">Чай {{product.title}}</h3>
+  <div class="row mt-2 justify-content-xl-center">
+    <div class="card m-3">
+      <div class="row align-items-md-stretch">
+        <div class="col-md-6">
+          <div>
+            <img alt="catalog-1" class="img-fluid product-picture" src="{{product.image}}">
+            <p>Цена: {{product.price}}р.</p>
+            <a class="btn btn-primary hvr-float-shadow mb-3" routerLink="/order"
+               [queryParams]="{product: product.title}">Купить</a>
+            <!--    (addToCartEvent)="addToCart($event)"-->
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="p-4">
+            <p>{{product.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+

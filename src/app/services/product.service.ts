@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Observable, tap} from "rxjs";
+import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {ProductType} from "../types/product.type";
 
@@ -13,5 +13,4 @@ export class ProductService {
   getProducts(): Observable<ProductType[]> {
     return this.http.get<ProductType[]>('https://testologia.site/tea');
   }
-
 }
