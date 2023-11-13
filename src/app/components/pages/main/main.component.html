@@ -97,4 +97,17 @@
     </div>
   </div>
 </div>
-
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">ЧАЙ</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <p>Посмотрите наши чайные коллекции</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Закрыть</button>
+    <button type="button" class="btn btn-outline-primary" [routerLink]="['/products']" (click)="modal.close('Close click')">Смотреть</button>
+  </div>
+</ng-template>
+<button class="btn btn-outline-primary mb-2 me-2" (click)="openSm(content)">Small modal</button>

@@ -12,6 +12,7 @@ import { ProductCardComponent } from './components/common/product-card/product-c
 import {HttpClientModule} from "@angular/common/http";
 import { ProductComponent } from './components/pages/product/product.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

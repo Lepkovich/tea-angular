@@ -4,21 +4,24 @@ import {map, Subscription} from "rxjs";
 import {Router} from "@angular/router";
 import {ProductService} from "../../../services/product.service";
 
+
+
 @Component({
   selector: 'products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+  styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit, OnDestroy{
 
   private subscription: Subscription | null = null;
   products: ProductType[] = [];
+
+
   constructor(
     private router: Router,
-    private productService: ProductService
-  ) {
+    private productService: ProductService,
+  ) {}
 
-  }
 
   ngOnInit() {
     this.subscription = this.productService.getProducts()
@@ -57,4 +60,5 @@ export class ProductsComponent implements OnInit, OnDestroy{
   ngOnDestroy() {
     this.subscription?.unsubscribe();
   }
+
 }
