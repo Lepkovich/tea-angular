@@ -13,6 +13,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { ProductComponent } from './components/pages/product/product.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SearchDirective } from './directives/search.directive';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ProductsComponent,
     OrderComponent,
     ProductCardComponent,
-    ProductComponent
+    ProductComponent,
+    SearchDirective
   ],
   imports: [
     BrowserModule,

@@ -116,7 +116,8 @@ export class OrderComponent implements OnInit {
           if (response.success === 1) {
             this.orderPlaced = true;
             this.orderForm.reset();
-          } else {
+          }
+          else {
             this.serverError = true;
           }
         })

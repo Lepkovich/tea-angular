@@ -58,20 +58,5 @@ export class ProductComponent implements OnInit{
           this.router.navigate(['/'])
         }
       })
-
-
-    // console.log(this.product);
-
-// нам нужно настроить подписку на Products[]
-    // this.activatedRoute.queryParams
-    //   .subscribe((id) => {
-    //     if(id['id']) {
-    //       this.product = this.products.id
-    //     }
-    //   })
-  }
-
-  addToCart(title: string): void {
-
   }
 }

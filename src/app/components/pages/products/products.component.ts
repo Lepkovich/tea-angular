@@ -24,6 +24,16 @@ export class ProductsComponent implements OnInit, OnDestroy{
 
 
   ngOnInit() {
+  //   пример как нужно взять queryParams из URL
+  //   this.subscription = this.activatedRoute.queryParams.subscribe((params) => { //колл-бэк функция с одним параметром
+  //     if (params['product']) {
+  //       this.orderForm.patchValue({
+  //         product: params['product'], //передали параметр product из URL
+  //       });
+  //       this.productValue = params['product']; //присвоили product (мы не можем взять его при disabled: true)
+  //     }
+  //   })
+  // }
     this.subscription = this.productService.getProducts()
       .pipe(
         map((data: ProductType[]) => {

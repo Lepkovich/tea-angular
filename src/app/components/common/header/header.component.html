@@ -17,8 +17,9 @@
           </li>
         </ul>
         <form class="d-flex" role="search">
-          <input aria-label="Search" class="form-control me-2" placeholder="Поиск чая" type="search">
-          <button class="btn btn-outline-primary" type="submit">Найти</button>
+          <input aria-label="Search" class="form-control me-2" placeholder="Поиск чая" type="search" [(ngModel)]="searchQuery" [ngModelOptions]="{standalone: true}">
+          <button class="btn btn-outline-primary" type="submit" routerLink="/products"
+                  [queryParams]="{search: searchQuery}">Найти</button>
         </form>
       </div>
     </nav>
