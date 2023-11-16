@@ -44,7 +44,7 @@ export class ProductComponent implements OnInit{
     this.productService.getProducts()
       .pipe(
         tap((result) => {
-          console.log(result)
+          // console.log(result)
         })
       )
       .subscribe({

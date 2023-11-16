@@ -1,10 +1,12 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Injectable, OnDestroy, OnInit} from '@angular/core';
 import {ProductType} from "../../../types/product.type";
 import {map, Subscription} from "rxjs";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ProductService} from "../../../services/product.service";
 
-
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'products',
@@ -15,25 +17,27 @@ export class ProductsComponent implements OnInit, OnDestroy{
 
   private subscription: Subscription | null = null;
   products: ProductType[] = [];
+  searchQuery: string = '';
 
 
   constructor(
     private router: Router,
     private productService: ProductService,
+    // private searchDirective: SearchDirective,
+    private activatedRoute: ActivatedRoute
   ) {}
 
 
   ngOnInit() {
-  //   пример как нужно взять queryParams из URL
-  //   this.subscription = this.activatedRoute.queryParams.subscribe((params) => { //колл-бэк функция с одним параметром
-  //     if (params['product']) {
-  //       this.orderForm.patchValue({
-  //         product: params['product'], //передали параметр product из URL
-  //       });
-  //       this.productValue = params['product']; //присвоили product (мы не можем взять его при disabled: true)
-  //     }
-  //   })
-  // }
+
+    // this.activatedRoute.queryParams.subscribe((params) => {
+    //   if (params['search']) {
+    //     this.searchQuery = params['search']; //взяли поисковую строку из URL
+    //     console.log(this.searchQuery);
+    //     this.searchDirective.teaSearch = this.searchQuery;
+    //   }
+    // })
+
     this.subscription = this.productService.getProducts()
       .pipe(
         map((data: ProductType[]) => {

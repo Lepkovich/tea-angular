@@ -91,8 +91,8 @@ export class OrderComponent implements OnInit {
 
 
   signIn() {
-    console.log(this.orderForm.value);
-    console.log(this.productValue);
+    // console.log(this.orderForm.value);
+    // console.log(this.productValue);
 
     if (
       this.orderForm.value.name &&
