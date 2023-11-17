@@ -1,5 +1,5 @@
 import {Component, Injectable} from '@angular/core';
-import {Observable, Subject} from "rxjs";
+import {SearchService} from "../../../services/search.service";
 
 @Component({
   selector: 'header-component',
@@ -14,16 +14,12 @@ import {Observable, Subject} from "rxjs";
 
 export class HeaderComponent {
   searchQuery: string = '';
-  private searchQuerySubject = new Subject<string>();
-  getSearchQueryObservable(): Observable<string> {
-    return this.searchQuerySubject.asObservable();
-  }
-  constructor() {
+
+  constructor(private searchService: SearchService) {
   }
 
   onSearchChange() {
     console.log('значение searchQuery из header:' + this.searchQuery);
-    this.searchQuerySubject.next('тест');
+    this.searchService.setSearchQuery(this.searchQuery);
   }
-
 }

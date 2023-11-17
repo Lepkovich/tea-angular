@@ -3,6 +3,7 @@ import {ProductType} from "../../../types/product.type";
 import {map, Subscription} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ProductService} from "../../../services/product.service";
+import {SearchService} from "../../../services/search.service";
 
 @Injectable({
   providedIn: 'root'
@@ -23,8 +24,8 @@ export class ProductsComponent implements OnInit, OnDestroy{
   constructor(
     private router: Router,
     private productService: ProductService,
-    // private searchDirective: SearchDirective,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private searchService: SearchService
   ) {}
 
 
@@ -37,7 +38,21 @@ export class ProductsComponent implements OnInit, OnDestroy{
     //     this.searchDirective.teaSearch = this.searchQuery;
     //   }
     // })
+    // Пример подписки на Observable
+    this.subscription = this.searchService.getSearchQueryObservable().subscribe(query => {
+      // Делаем что-то с обновленным поисковым запросом
+      if(query) {
+        this.searchQuery = query;
+        console.log('Поисковый запрос обновлен:', query);
+      } else {
+        this.searchQuery = '';
+        console.log('поисковый запрос пустой')
+      }
+    });
 
+    if (this.searchQuery) {
+      //
+    }
     this.subscription = this.productService.getProducts()
       .pipe(
         map((data: ProductType[]) => {

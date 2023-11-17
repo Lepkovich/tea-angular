@@ -18,11 +18,11 @@ export class SearchDirective implements OnInit{
 
 
   ngOnInit() {
-    this.headerComponent.getSearchQueryObservable()
-      .subscribe((searchQuery: string) => {
-        // Handle the search query change in your directive
-        console.log('Search query changed in directive:', searchQuery);
-      });
+    // this.headerComponent.getSearchQueryObservable()
+    //   .subscribe((searchQuery: string) => {
+    //     // Handle the search query change in your directive
+    //     console.log('Search query changed in directive:', searchQuery);
+    //   });
     // console.log(this.headerComponent.onSearchChange)
       // .subscribe((query:string) => {
       //   console.log('привет из директивы')

@@ -1,24 +1,17 @@
 import { Injectable } from '@angular/core';
-import {Subject} from "rxjs";
+import { Subject, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SearchService {
+  private searchQuerySubject = new Subject<string>();
 
-  searchQuerySubject = new Subject<string>();
-
-  setSearchQuery(searchQuery: string) {
-    this.searchQuerySubject.next(searchQuery);
-  }
-
-  getSearchQuery() {
+  getSearchQueryObservable(): Observable<string> {
     return this.searchQuerySubject.asObservable();
   }
-  constructor() {
-    // this.searchQuerySubject
-    //   .subscribe((param: string) => {
-    //     console.log(param)
-    //   } )
+
+  setSearchQuery(query: string) {
+    this.searchQuerySubject.next(query);
   }
 }
