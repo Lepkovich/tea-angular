@@ -1,5 +1,6 @@
-import {Component, Injectable} from '@angular/core';
+import {Component, Injectable, OnInit} from '@angular/core';
 import {SearchService} from "../../../services/search.service";
+import { Router} from "@angular/router";
 
 @Component({
   selector: 'header-component',
@@ -12,14 +13,22 @@ import {SearchService} from "../../../services/search.service";
 })
 
 
-export class HeaderComponent {
+export class HeaderComponent{
   searchQuery: string = '';
 
-  constructor(private searchService: SearchService) {
-  }
+  constructor(private searchService: SearchService,
+              private router: Router
+              ) {}
+
 
   onSearchChange() {
-    console.log('значение searchQuery из header:' + this.searchQuery);
     this.searchService.setSearchQuery(this.searchQuery);
+  }
+
+  resetSearch() {
+    if (!this.searchQuery) {
+      this.searchService.setSearchQuery('');
+      this.router.navigate(['/products'])
+    }
   }
 }

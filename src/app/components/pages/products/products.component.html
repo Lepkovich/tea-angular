@@ -1,7 +1,19 @@
-<h2 class="text-center mb-5">Наши чайные коллекции</h2>
+<h2 class="text-center mb-5" *ngIf="!searchQuery">Наши чайные коллекции</h2>
+<h2 class="text-center mb-5" *ngIf="searchQuery">Результаты поиска по запросу: {{ searchQuery }}</h2>
 <div class="container-xl">
-  <div class="row g-3 justify-content-xl-center mb-5">
-    <product-card class="col-lg-4" *ngFor="let product of products" [product]="product" ></product-card>
-  </div>
+
+  <ng-container *ngIf="products.length > 0; else noProducts">
+    <div class="row g-3 justify-content-xl-center mb-5">
+    <product-card class="col-lg-4" *ngFor="let product of products" [product]="product"></product-card>
+    </div>
+    <div *ngIf="loading" class="loader-bg">
+      <div class="loader"></div>
+    </div>
+  </ng-container>
+  <ng-template #noProducts>
+    <div class="col-12 text-center">
+      <p>Ничего не найдено</p>
+    </div>
+  </ng-template>
 </div>
 

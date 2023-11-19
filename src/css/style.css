@@ -3,82 +3,92 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+
 .navbar {
-    background-color: #F8F9FA;
-    color: rgba(0, 0, 0, 0.6);
+  background-color: #F8F9FA;
+  color: rgba(0, 0, 0, 0.6);
 }
+
 .img-fluid {
-    width: 100%;
+  width: 100%;
 }
+
 h2 {
-    font-size: 32px;
+  font-size: 32px;
 }
 
 h3 {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 p {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .no-padding {
-    padding-left: 0;
-    padding-right: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 
 .cont-accord {
-    max-width: 856px;
+  max-width: 856px;
 }
 
 .cont-form {
-    max-width: 636px;
+  max-width: 636px;
 }
 
 .accordion-item {
-    border: 1px solid transparent;
-    margin-bottom: 16px;
+  border: 1px solid transparent;
+  margin-bottom: 16px;
 }
 
 
 .accordion-item:first-of-type .accordion-button {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
+
 .accordion-item:last-of-type .accordion-button.collapsed {
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .accordion-button {
-    background: linear-gradient(360deg, #076BFF 0%, #007BFF 100%);
-    border-radius: 10px;
-    color: white;
+  background: linear-gradient(360deg, #076BFF 0%, #007BFF 100%);
+  border-radius: 10px;
+  color: white;
 }
+
 .accordion-button:focus {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 .accordion-button::after {
-    background-image: url("../../../../../tea-angular/src/assets/images/button-down.png");
+  background-image: url("../../../../../tea-angular/src/assets/images/button-down.png");
 }
-.accordion-button:not(.collapsed){
-    color: white;
+
+.accordion-button:not(.collapsed) {
+  color: white;
 }
+
 .accordion-button:not(.collapsed)::after {
-    background-image: url("../../../../../tea-angular/src/assets/images/button-down.png");
+  background-image: url("../../../../../tea-angular/src/assets/images/button-down.png");
 }
 
 .hideElement {
-    display: none;
+  display: none;
 }
+
 .thank-you-page {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
+
 .order-placed {
   flex: 1;
 }
+
 

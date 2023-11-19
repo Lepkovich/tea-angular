@@ -34,7 +34,7 @@ export class SearchDirective implements OnInit{
 
   @Input()
   set teaSearch(description: string) {
-    if(description.toLowerCase().includes('бленд')) {
+    if(description.toLowerCase().includes('')) {
       this.viewContainer.createEmbeddedView(this.templateRef)
     } else {
       this.viewContainer.clear()

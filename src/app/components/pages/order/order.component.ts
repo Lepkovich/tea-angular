@@ -29,6 +29,8 @@ export class OrderComponent implements OnInit {
   private productValue: string = '';
   orderPlaced: boolean = false;
   serverError: boolean = false;
+  isSubmitting: boolean = false;
+  loading: boolean =  false;
 
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
@@ -93,6 +95,11 @@ export class OrderComponent implements OnInit {
   signIn() {
     // console.log(this.orderForm.value);
     // console.log(this.productValue);
+    if (this.isSubmitting) {
+      return; // Если уже отправлен запрос, не делать ничего
+    }
+    this.isSubmitting = true; // Устанавливаем флаг в true
+    this.loading = true;
 
     if (
       this.orderForm.value.name &&
@@ -102,27 +109,33 @@ export class OrderComponent implements OnInit {
       this.orderForm.value.zip &&
       this.productValue &&
       this.orderForm.value.address) {
-        this.orderService.createOrder({
-          name: this.orderForm.value.name,
-          last_name: this.orderForm.value.surname,
-          phone: this.orderForm.value.phone,
-          country: this.orderForm.value.country,
-          zip: this.orderForm.value.zip,
-          product: this.productValue,
-          address: this.orderForm.value.address,
-          comment: this.orderForm.value.comments || ''
-        })
+      this.orderService.createOrder({
+        name: this.orderForm.value.name,
+        last_name: this.orderForm.value.surname,
+        phone: this.orderForm.value.phone,
+        country: this.orderForm.value.country,
+        zip: this.orderForm.value.zip,
+        product: this.productValue,
+        address: this.orderForm.value.address,
+        comment: this.orderForm.value.comments || ''
+      })
         .subscribe(response => {
           if (response.success === 1) {
-            this.orderPlaced = true;
-            this.orderForm.reset();
-          }
-          else {
+            // Задержка в 3 секунды перед сбросом флага и включением кнопки
+            setTimeout(() => {
+              this.isSubmitting = false; // Сбрасываем флаг после завершения запроса
+              this.orderPlaced = true;
+              this.loading = false;
+              this.orderForm.reset();
+            }, 3000);
+          } else {
             this.serverError = true;
+            this.isSubmitting = false; // Сбрасываем флаг после завершения запроса
           }
         })
     } else {
-      alert('Заполните необходимые поля')
+      alert('Заполните необходимые поля');
+      this.isSubmitting = false; // Сбрасываем флаг в случае ошибки валидации
     }
 
   }

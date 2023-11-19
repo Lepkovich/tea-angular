@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {ProductService} from "../../../services/product.service";
 import {ProductType} from "../../../types/product.type";
-import {tap} from "rxjs";
 
 @Component({
   selector: 'product',
@@ -13,6 +12,8 @@ export class ProductComponent implements OnInit{
   products: ProductType[] = [];
   product: ProductType = {} as ProductType ;
   productId: number | null = 0;
+
+
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
               private productService: ProductService) {
@@ -20,18 +21,6 @@ export class ProductComponent implements OnInit{
 
   ngOnInit():void {
 
-
-    // Получение текущего пути URL
-    const currentPath = window.location.pathname;
-
-// Разделение пути по символу "/"
-    const pathParts = currentPath.split('/');
-
-// Получение последней части пути (последний элемент массива)
-    const lastPart = pathParts[pathParts.length - 1];
-
-// Преобразование последней части в число
-    this.productId = Number(lastPart);
 
     // Получение параметра 'id' из URL
     // this.activatedRoute.paramMap.subscribe(params => {
@@ -41,12 +30,12 @@ export class ProductComponent implements OnInit{
     //   }
     // });
 
-    this.productService.getProducts()
-      .pipe(
-        tap((result) => {
-          // console.log(result)
-        })
-      )
+    const currentPath = window.location.pathname;
+    const pathParts = currentPath.split('/');
+    const lastPart = pathParts[pathParts.length - 1];
+    this.productId = Number(lastPart);
+
+    this.productService.getProducts('')
       .subscribe({
         next: (data) => {
           if (this.productId) {
