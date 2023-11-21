@@ -1,7 +1,7 @@
 import {Injectable, OnDestroy, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
-import {ProductType} from "../types/product.type";
+import {ProductType} from "../../../types/product.type";
 
 
 @Injectable({

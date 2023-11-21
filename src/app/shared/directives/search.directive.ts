@@ -1,5 +1,5 @@
 import {Directive, Input, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
-import {HeaderComponent} from "../components/common/header/header.component";
+import {HeaderComponent} from "../layout/header/header.component";
 
 @Directive({
   selector: '[teaSearch]'

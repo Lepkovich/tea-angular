@@ -1,8 +1,8 @@
 import {Component, Injectable, OnDestroy, OnInit} from '@angular/core';
-import {ProductType} from "../../../types/product.type";
+import {ProductType} from "../../../../types/product.type";
 import {map, Subscription, tap} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
-import {ProductService} from "../../../services/product.service";
+import {ProductService} from "../../../shared/services/product.service";
 
 @Injectable({
   providedIn: 'root'

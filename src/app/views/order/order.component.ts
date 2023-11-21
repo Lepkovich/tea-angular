@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
 import {AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from "@angular/forms";
-import {OrderService} from "../../../services/order.service";
+import {OrderService} from "../../shared/services/order.service";
 
 
 function regexValidator(pattern: string): ValidatorFn {
