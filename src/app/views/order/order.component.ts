@@ -42,14 +42,11 @@ export class OrderComponent implements OnInit {
     name: new FormControl('', [Validators.required, regexValidator('^[a-zA-Zа-яА-Я]+$')]),
     surname: new FormControl('', [Validators.required, regexValidator('^[a-zA-Zа-яА-Я]+$')]),
     phone: new FormControl('', [Validators.required, regexValidator('^\\+?\\d{11}$')]),
-    // phone: new FormControl('', [Validators.required, regexValidator('^\\+\\d{11}|\\d{11}$')]),
     country: new FormControl('', [Validators.required, regexValidator('^[a-zA-Zа-яА-Я]+$')]),
     zip: new FormControl('', [Validators.required, regexValidator('^[0-9]+$')]),
     address: new FormControl('', [Validators.required, regexValidator('^[a-zA-Zа-яА-Я0-9\\s\\/\\-]+$')]),
     comments: new FormControl('')
   })
-
-// {validators: formValidator}
 
 
   get name() {
@@ -135,6 +132,7 @@ export class OrderComponent implements OnInit {
         })
     } else {
       alert('Заполните необходимые поля');
+      this.loading = false; // останавливаем лоадер
       this.isSubmitting = false; // Сбрасываем флаг в случае ошибки валидации
     }
 

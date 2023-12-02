@@ -97,7 +97,7 @@
                formControlName="comments">
       </div>
       <div class="col-12 mb-5">
-        <button id="btnSend" class="btn btn-primary hvr-grow-shadow" type="submit" [disabled]="isSubmitting" (click)="signIn()">Отправить
+        <button id="btnSend" class="btn btn-primary hvr-grow-shadow" type="submit" [disabled]="isSubmitting || orderForm.invalid" (click)="signIn()">Отправить
         </button>
         <div class="text-danger" *ngIf="serverError">
           Произошла ошибка. Попробуйте еще раз

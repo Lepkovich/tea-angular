@@ -30,15 +30,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "src/css/animate.min.css",
-              "src/css/bootstrap.min.css",
-              "src/css/hover-min.css",
-              "src/css/magnific-popup.css"
+              "src/styles.scss"
             ],
             "scripts": [
-              "src/scripts/bootstrap.min.js",
-              "src/scripts/jquery.magnific-popup.min.js",
               "src/scripts/jquery-3.6.3.min.js"
             ]
           },
@@ -103,7 +97,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/scripts/jquery-3.6.3.min.js"
+            ]
           }
         }
       }
