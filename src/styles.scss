@@ -35,3 +35,42 @@
     transform: rotate(360deg)
   }
 }
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.navbar {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.img-fluid {
+  width: 100%;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+p {
+  font-size: 16px;
+}
+
+.no-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
+
+.hideElement {
+  display: none;
+}
+

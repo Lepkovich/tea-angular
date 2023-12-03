@@ -1,5 +1,5 @@
 import { Component, TemplateRef, ViewChild, OnDestroy, ViewEncapsulation } from '@angular/core';
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import { Observable, Subject } from "rxjs";
 import { takeUntil } from 'rxjs/operators';
 

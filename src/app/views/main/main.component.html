@@ -8,89 +8,93 @@
 
     <h2 class="text-center mb-5">Ответы на часто задаваемые вопросы</h2>
 
-    <div class="container cont-accord">
-      <div class="accordion mb-5 wow animate__jackInTheBox" id="accordionExample">
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingOne">
-            <button aria-controls="collapseOne" aria-expanded="true" class="accordion-button"
-                    data-bs-target="#collapseOne" data-bs-toggle="collapse" type="button">
-              Собираете ли вы подарочные боксы?
-            </button>
-          </h2>
-          <div aria-labelledby="headingOne" class="accordion-collapse collapse show"
-               data-bs-parent="#accordionExample" id="collapseOne">
-            <div class="accordion-body">
+    <div ngbAccordion class="container cont-accord">
+      <div ngbAccordionItem [collapsed]="false">
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton>Собираете ли вы подарочные боксы?</button>
+        </h2>
+        <div ngbAccordionCollapse>
+          <div ngbAccordionBody>
+            <ng-template>
               Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и
               стоимость!
-            </div>
+            </ng-template>
           </div>
         </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingTwo">
-            <button aria-controls="collapseTwo" aria-expanded="false"
-                    class="accordion-button collapsed"
-                    data-bs-target="#collapseTwo" data-bs-toggle="collapse" type="button">
-              Сколько у вас разновидностей чая?
-            </button>
-          </h2>
-          <div aria-labelledby="headingTwo" class="accordion-collapse collapse"
-               data-bs-parent="#accordionExample" id="collapseTwo">
-            <div class="accordion-body">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores esse est ipsa
-              molestiae natus nemo officia omnis sapiente tempore voluptatem. Commodi dolorem
-              earum harum impedit incidunt labore quod veritatis voluptatem.
-            </div>
+      </div>
+      <div ngbAccordionItem>
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton>
+            Сколько у вас разновидностей чая?
+          </button>
+        </h2>
+        <div ngbAccordionCollapse>
+          <div ngbAccordionBody>
+            <ng-template>
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+              officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+              moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+              keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+              butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+              haven't heard of them accusamus labore sustainable VHS.
+            </ng-template>
           </div>
         </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingThree">
-            <button aria-controls="collapseThree" aria-expanded="false"
-                    class="accordion-button collapsed" data-bs-target="#collapseThree"
-                    data-bs-toggle="collapse" type="button">
-              В какой срок осуществляется доставка?
-            </button>
-          </h2>
-          <div aria-labelledby="headingThree" class="accordion-collapse collapse"
-               data-bs-parent="#accordionExample" id="collapseThree">
-            <div class="accordion-body">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores esse est ipsa
-              molestiae natus nemo officia omnis sapiente tempore voluptatem. Commodi dolorem
-              earum harum impedit incidunt labore quod veritatis voluptatem.
-            </div>
+      </div>
+      <div ngbAccordionItem>
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton>
+            В какой срок осуществляется доставка?
+          </button>
+        </h2>
+        <div ngbAccordionCollapse>
+          <div ngbAccordionBody>
+            <ng-template>
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+              officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+              moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+              keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+              butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+              haven't heard of them accusamus labore sustainable VHS.
+            </ng-template>
           </div>
         </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingFour">
-            <button aria-controls="collapseFour" aria-expanded="false"
-                    class="accordion-button collapsed" data-bs-target="#collapseFour"
-                    data-bs-toggle="collapse" type="button">
-              У вас обновляется ассортимент?
-            </button>
-          </h2>
-          <div aria-labelledby="headingFour" class="accordion-collapse collapse"
-               data-bs-parent="#accordionExample" id="collapseFour">
-            <div class="accordion-body">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores esse est ipsa
-              molestiae natus nemo officia omnis sapiente tempore voluptatem. Commodi dolorem
-              earum harum impedit incidunt labore quod veritatis voluptatem.
-            </div>
+      </div>
+      <div ngbAccordionItem>
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton>
+            У вас обновляется ассортимент?
+          </button>
+        </h2>
+        <div ngbAccordionCollapse>
+          <div ngbAccordionBody>
+            <ng-template>
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+              officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+              moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+              keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+              butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+              haven't heard of them accusamus labore sustainable VHS.
+            </ng-template>
           </div>
         </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingFive">
-            <button aria-controls="collapseFive" aria-expanded="false"
-                    class="accordion-button collapsed" data-bs-target="#collapseFive"
-                    data-bs-toggle="collapse" type="button">
-              Какого объема у вас пачки чая?
-            </button>
-          </h2>
-          <div aria-labelledby="headingFive" class="accordion-collapse collapse"
-               data-bs-parent="#accordionExample" id="collapseFive">
-            <div class="accordion-body">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores esse est ipsa
-              molestiae natus nemo officia omnis sapiente tempore voluptatem. Commodi dolorem
-              earum harum impedit incidunt labore quod veritatis voluptatem.
-            </div>
+      </div>
+      <div ngbAccordionItem>
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton>
+            Какого объема у вас пачки чая?
+          </button>
+        </h2>
+        <div ngbAccordionCollapse>
+          <div ngbAccordionBody>
+            <ng-template>
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+              officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+              moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+              keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+              butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+              haven't heard of them accusamus labore sustainable VHS.
+            </ng-template>
           </div>
         </div>
       </div>
